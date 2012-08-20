@@ -1,0 +1,8 @@
+.DS_Store
+*.pyc
+*.pyo
+*.egg
+*.egg-info
+build
+*.sublime-project
+*.sublime-workspace
