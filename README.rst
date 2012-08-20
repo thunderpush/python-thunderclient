@@ -2,7 +2,7 @@
 Thunderpush client for Python
 -----------------------------
 
-A Python library for sending messages to Thunderpush server.
+A Python library for sending messages to the `Thunderpush <https://github.com/kjagiello/thunderpush>`_ server.
 
 Example
 =======
