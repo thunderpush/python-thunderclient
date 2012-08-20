@@ -11,7 +11,7 @@ setup(
     zip_safe=False,
     license='BSD',
     include_package_data=True,
-    url='https://github.com/kjagiello/python-thunderclient',
+    url='https://github.com/thunderpush/python-thunderclient',
     classifiers=[
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
