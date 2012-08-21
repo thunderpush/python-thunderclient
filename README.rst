@@ -9,6 +9,8 @@ Example
 
 ::
 	
+	from thunderclient import Thunder
+
 	c = Thunder("key", "secretkey", "localhost", 8080)
 
 	print c.get_user_count()
