@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='thunderclient',
-    version='0.9.0',
+    version='0.9.1',
     author='Krzysztof Jagiello',
     author_email='balonyo@gmail.com',
     description='A Python library for sending messages to Thunderpush server.',
