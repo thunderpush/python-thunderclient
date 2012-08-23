@@ -1,9 +1,10 @@
 import httplib
 
 try:
-    import json
-except ImportError:
     import simplejson as json
+except ImportError:
+    import json # NOQA
+
 
 def return_response(name=None):
     def inner_return_response(f):
@@ -18,6 +19,7 @@ def return_response(name=None):
                 return None
         return do_job
     return inner_return_response
+
 
 class Thunder(object):
     API_VERSION = "1.0.0"
@@ -71,12 +73,12 @@ class Thunder(object):
 
     @return_response("count")
     def send_message_to_user(self, userid, message):
-        return self._make_request("POST", 
+        return self._make_request("POST",
             self._make_url("users", userid), message)
 
     @return_response("count")
     def send_message_to_channel(self, channel, message):
-        return self._make_request("POST", 
+        return self._make_request("POST",
             self._make_url("channels", channel), message)
 
     @return_response("online")
@@ -89,7 +91,7 @@ class Thunder(object):
 
 if __name__ == '__main__':
     c = Thunder("key", "secretkey", "localhost", 8080)
-    
+
     print c.get_user_count()
     print c.get_users_in_channel("test")
     print c.send_message_to_user("test", {"msg": "hello!"})
