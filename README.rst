@@ -18,3 +18,4 @@ Example
 	print c.send_message_to_user("test", {"msg": "hello!"})
 	print c.send_message_to_channel("test", {"msg": "hello!"})
 	print c.is_user_online("test")
+	print c.disconnect_user("test")

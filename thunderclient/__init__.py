@@ -5,13 +5,15 @@ try:
 except ImportError:
     import simplejson as json
 
-def return_response(name):
+def return_response(name=None):
     def inner_return_response(f):
         def do_job(self, *args, **kwargs):
             status, data = f(self, *args, **kwargs)
 
             if status == httplib.OK:
                 return data.get(name)
+            elif name is None and status == httplib.NO_CONTENT:
+                return True
             else:
                 return None
         return do_job
@@ -81,6 +83,10 @@ class Thunder(object):
     def is_user_online(self, userid):
         return self._make_request("GET", self._make_url("users", userid))
 
+    @return_response()
+    def disconnect_user(self, userid):
+        return self._make_request("DELETE", self._make_url("users", userid))
+
 if __name__ == '__main__':
     c = Thunder("key", "secretkey", "localhost", 8080)
     
@@ -89,3 +95,4 @@ if __name__ == '__main__':
     print c.send_message_to_user("test", {"msg": "hello!"})
     print c.send_message_to_channel("test", {"msg": "hello!"})
     print c.is_user_online("test")
+    print c.disconnect_user("test")
