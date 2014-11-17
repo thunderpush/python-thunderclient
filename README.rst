@@ -4,6 +4,13 @@ Thunderpush client for Python
 
 A Python library for sending messages to the `Thunderpush <https://github.com/thunderpush/thunderpush>`_ server.
 
+Install
+=======
+
+::
+	
+	pip install thunderclient
+
 Example
 =======
 
