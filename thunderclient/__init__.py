@@ -25,10 +25,11 @@ class Thunder(object):
     API_VERSION = "1.0.0"
     API_URL = "/api/%s/%s/%s/"
 
-    def __init__(self, apikey, apisecret, host, port=80):
+    def __init__(self, apikey, apisecret, host, port=80, use_ssl=False):
         self.apikey = apikey
         self.apisecret = apisecret
         self.host = "%s:%d" % (host, port,)
+        self.use_ssl = use_ssl
 
     def _make_url(self, command, *args):
         url = self.API_URL % (self.API_VERSION, self.apikey, command,)
@@ -47,7 +48,11 @@ class Thunder(object):
         if data:
             data = json.dumps(data)
 
-        connection = httplib.HTTPConnection(self.host)
+        if self.use_ssl:
+            connection = httplib.HTTPSConnection(self.host)
+        else:
+            connection = httplib.HTTPConnection(self.host)
+
         connection.request(method, url, body=data, headers=headers)
         response = connection.getresponse()
 
