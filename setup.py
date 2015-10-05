@@ -3,19 +3,22 @@ from setuptools import setup, find_packages
 
 setup(
     name='thunderclient',
-    version='0.9.1',
+    version='1.0.0',
     author='Krzysztof Jagiello',
-    author_email='balonyo@gmail.com',
+    author_email='me@kjagiello.com',
     description='A Python library for sending messages to Thunderpush server.',
     packages=find_packages(),
     zip_safe=False,
     license='BSD',
     include_package_data=True,
     url='https://github.com/thunderpush/python-thunderclient',
+    install_requires=[
+        'requests==2.7.0',
+    ],
     classifiers=[
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
-        "Development Status :: 4 - Beta",
+        "Programming Language :: Python :: 3",
         "Intended Audience :: Developers",
         "Topic :: Internet :: WWW/HTTP",
     ],
