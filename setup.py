@@ -13,7 +13,7 @@ setup(
     include_package_data=True,
     url='https://github.com/thunderpush/python-thunderclient',
     install_requires=[
-        'requests==2.7.0',
+        'requests==2.20.0',
     ],
     classifiers=[
         "License :: OSI Approved :: BSD License",
